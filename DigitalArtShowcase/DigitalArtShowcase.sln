@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalArtShowcase", "DigitalArtShowcase.csproj", "{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BF9B304-A045-4B15-9F63-1CF3728F0116}
+	EndGlobalSection
+EndGlobal
