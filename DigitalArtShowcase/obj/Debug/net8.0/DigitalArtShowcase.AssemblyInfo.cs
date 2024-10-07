@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigitalArtShowcase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06551772378ca0356f8a00aa6b0f57030ac87693")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigitalArtShowcase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigitalArtShowcase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

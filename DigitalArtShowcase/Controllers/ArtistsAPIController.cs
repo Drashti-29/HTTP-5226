@@ -32,10 +32,28 @@ namespace DigitalArtShowcase.Controllers
 
         // GET: api/ArtistAPI/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ArtistDto>> GetArtist(int id)
+        public async Task<ArtistDto> GetArtist(int id)
 
         {
             return await _artistService.GetArtist(id);
+        }
+
+        [HttpPut(template: "Update/{id}")]
+        public async Task<ServiceResponse> UpdateArtistDetails(int id, ArtistDto artistDto)
+        {
+            return await _artistService.UpdateArtistDetails(id, artistDto);
+        }
+
+        [HttpPost(template: "Add")]
+        public async Task<ServiceResponse> AddArtist(ArtistDto artistDto)
+        {
+            return await _artistService.AddArtist(artistDto);
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task<ServiceResponse> DeleteArtist(int id)
+        {
+            return await _artistService.DeleteArtist(id);
         }
     }
 }

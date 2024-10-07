@@ -1,6 +1,7 @@
 ﻿using DigitalArtShowcase.Data.Migrations;
 using DigitalArtShowcase.Models;
 using Microsoft.AspNetCore.Mvc;
+using Artist = DigitalArtShowcase.Models.Artist;
 
 namespace DigitalArtShowcase.Interface
 {
@@ -8,7 +9,9 @@ namespace DigitalArtShowcase.Interface
     {
         // base CRUD
         Task<IEnumerable<ArtistDto>> ListArtists();
-        Task<ActionResult<ArtistDto>> GetArtist(int id);
-
+        Task<ArtistDto> GetArtist(int id);
+        Task<ServiceResponse> UpdateArtistDetails(int id, ArtistDto artistDto);
+        Task<ServiceResponse> AddArtist(ArtistDto artistDto);
+        Task<ServiceResponse> DeleteArtist(int id);
     }
 }

@@ -4837,11 +4837,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\DigitalArtShowcase\\DigitalArtShowcase.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\DigitalArtShowcase.csproj",
       "projectName": "DigitalArtShowcase",
-      "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\DigitalArtShowcase\\DigitalArtShowcase.csproj",
+      "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\DigitalArtShowcase.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\DigitalArtShowcase\\obj\\",
+      "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
