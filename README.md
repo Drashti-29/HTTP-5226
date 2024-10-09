@@ -8,7 +8,6 @@
 - **Exhibition Management:** Create, update, delete, and list exhibitions.
 - **Artwork Management:** Manage artworks and associate them with exhibitions.
 - **Artist Details:** Each artwork is linked to an artist, displaying the artist's details.
-- **Service-Oriented:** Uses services for handling exhibition-related operations.
 
 ## Technology Stack
 
@@ -28,4 +27,4 @@
 ### Installation
 Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/digital-art-showcase.git
+   git clone https://github.com/Drashti-29/digital-art-showcase.git
