@@ -27,4 +27,4 @@
 ### Installation
 Clone the repository:
    ```bash
-   git clone https://github.com/Drashti-29/digital-art-showcase.git
+   git clone https://github.com/Drashti-29/HTTP-5226.git
