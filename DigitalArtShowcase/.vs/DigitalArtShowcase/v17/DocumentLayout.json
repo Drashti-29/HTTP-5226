@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\controllers\\artworkapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:controllers\\artworkapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\interface\\iartworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:interface\\iartworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\interface\\iexhibitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:interface\\iexhibitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\services\\exhibitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:services\\exhibitionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\services\\artworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:services\\artworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\models\\exhibition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:models\\exhibition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\controllers\\artistsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:controllers\\artistsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|c:\\users\\hp\\onedrive\\desktop\\humber\\sem 2\\back end development\\http-5226\\digitalartshowcase\\controllers\\exhibitionapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A0BC6BB-9EAE-4C3B-BF41-421B3CBF2CFC}|DigitalArtShowcase.csproj|solutionrelative:controllers\\exhibitionapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAQAAADAZmZmZiYgwBAAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:50:30.665Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -48,22 +65,87 @@
               "RelativeDocumentMoniker": "Interface\\IArtworkService.cs",
               "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IArtworkService.cs",
               "RelativeToolTip": "Interface\\IArtworkService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T22:05:48.482Z",
+              "WhenOpened": "2024-10-09T03:49:39.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IArtistService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IArtistService.cs",
+              "RelativeDocumentMoniker": "Interface\\IArtistService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IArtistService.cs",
+              "RelativeToolTip": "Interface\\IArtistService.cs",
+              "ViewState": "AQIAAAIAAABgAAAAAEAlwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:49:33.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Artwork.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Models\\Artwork.cs",
-              "RelativeDocumentMoniker": "Models\\Artwork.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Models\\Artwork.cs",
-              "RelativeToolTip": "Models\\Artwork.cs",
-              "ViewState": "AQIAAAUAAACAZmZmZmYfwBwAAAAbAAAA",
+              "Title": "IExhibitionService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IExhibitionService.cs",
+              "RelativeDocumentMoniker": "Interface\\IExhibitionService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IExhibitionService.cs",
+              "RelativeToolTip": "Interface\\IExhibitionService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T21:39:58.587Z",
+              "WhenOpened": "2024-10-09T03:49:17.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ArtworkService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtworkService.cs",
+              "RelativeDocumentMoniker": "Services\\ArtworkService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtworkService.cs",
+              "RelativeToolTip": "Services\\ArtworkService.cs",
+              "ViewState": "AQIAAJoAAAAAAAAAAAAiwLwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:42:46.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Exhibition.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Models\\Exhibition.cs",
+              "RelativeDocumentMoniker": "Models\\Exhibition.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Models\\Exhibition.cs",
+              "RelativeToolTip": "Models\\Exhibition.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA0wCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:38:02.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExhibitionService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ExhibitionService.cs",
+              "RelativeDocumentMoniker": "Services\\ExhibitionService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ExhibitionService.cs",
+              "RelativeToolTip": "Services\\ExhibitionService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:27:43.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExhibitionAPIController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ExhibitionAPIController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ExhibitionAPIController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ExhibitionAPIController.cs",
+              "RelativeToolTip": "Controllers\\ExhibitionAPIController.cs",
+              "ViewState": "AQIAABoAAAAAAQAAAEAswDMAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T03:18:34.344Z",
               "EditorCaption": ""
             },
             {
@@ -73,71 +155,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1838936309:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ArtworkService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtworkService.cs",
-              "RelativeDocumentMoniker": "Services\\ArtworkService.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtworkService.cs",
-              "RelativeToolTip": "Services\\ArtworkService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T21:38:45.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ArtworkAPIController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ArtworkAPIController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ArtworkAPIController.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ArtworkAPIController.cs",
-              "RelativeToolTip": "Controllers\\ArtworkAPIController.cs",
-              "ViewState": "AQIAACEAAAAANDMzM3MowC0AAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T19:39:21.668Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ArtistService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtistService.cs",
-              "RelativeDocumentMoniker": "Services\\ArtistService.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Services\\ArtistService.cs",
-              "RelativeToolTip": "Services\\ArtistService.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAUwHIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T02:59:23.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IArtistService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IArtistService.cs",
-              "RelativeDocumentMoniker": "Interface\\IArtistService.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Interface\\IArtistService.cs",
-              "RelativeToolTip": "Interface\\IArtistService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T02:15:43.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ArtistsAPIController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ArtistsAPIController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ArtistsAPIController.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\humber\\sem 2\\Back end development\\HTTP-5226\\DigitalArtShowcase\\Controllers\\ArtistsAPIController.cs",
-              "RelativeToolTip": "Controllers\\ArtistsAPIController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAMAmwBQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T19:59:51.816Z",
-              "EditorCaption": ""
             }
           ]
         }

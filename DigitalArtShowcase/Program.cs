@@ -15,6 +15,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 // Associate service interfaces with their implementations
 builder.Services.AddScoped<IArtistService, ArtistService>();
 builder.Services.AddScoped<IArtworkService, ArtworkService>();
+builder.Services.AddScoped<IExhibitionService, ExhibitionService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();

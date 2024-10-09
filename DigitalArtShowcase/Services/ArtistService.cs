@@ -18,7 +18,12 @@ namespace DigitalArtShowcase.Services
             _context = context;
         }
 
-        public async Task<ServiceResponse> AddArtist(ArtistDto artistDto)
+        /// <summary>
+        /// Creates a new artist and saves it to the database.
+        /// </summary>
+        /// <param name="artistDto">The artist data transfer object containing artist details.</param>
+        /// <returns>A ServiceResponse indicating the result of the creation operation.</returns>
+        public async Task<ServiceResponse> CreateArtist(ArtistDto artistDto)
         {
             ServiceResponse serviceResponse = new();
             Artist artist = new Artist()
@@ -36,24 +41,11 @@ namespace DigitalArtShowcase.Services
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse> DeleteArtist(int id)
-        {
-            ServiceResponse response = new();
-            // Artist must exist in the first place
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
-            {
-                response.Status = ServiceResponse.ServiceStatus.NotFound;
-                response.Messages.Add("Artist cannot be deleted because it does not exist.");
-                return response;
-            }
-            _context.Artists.Remove(artist);
-            await _context.SaveChangesAsync();
-            response.Status = ServiceResponse.ServiceStatus.Deleted;
-
-            return response;
-        }
-
+        /// <summary>
+        /// Retrieves an artist by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the artist to retrieve.</param>
+        /// <returns>An ArtistDto containing the artist's details, or null if not found.</returns>
         public async Task<ArtistDto> GetArtist(int id)
         {
             var artist =  await _context.Artists.FindAsync(id);
@@ -72,6 +64,10 @@ namespace DigitalArtShowcase.Services
             return artistDto;
         }
 
+        /// <summary>
+        /// Retrieves a list of all artists.
+        /// </summary>
+        /// <returns>A collection of ArtistDto objects.</returns>
         public async Task<IEnumerable<ArtistDto>> ListArtists()
         {
             List<Artist> artists = await _context.Artists.ToListAsync();
@@ -80,7 +76,7 @@ namespace DigitalArtShowcase.Services
             List<ArtistDto> artistDtos = new List<ArtistDto>();
             foreach (Artist artist in artists)
             {
-                // create new instance of OrderItemDto, add to list
+                // create new instance of ArtistDto, add to list
                 artistDtos.Add(new ArtistDto()
                 {
                     ArtistId = artist.ArtistId,
@@ -94,6 +90,12 @@ namespace DigitalArtShowcase.Services
             return artistDtos;
         }
 
+        /// <summary>
+        /// Updates the details of an existing artist.
+        /// </summary>
+        /// <param name="id">The ID of the artist to update.</param>
+        /// <param name="artistDto">The updated artist data transfer object.</param>
+        /// <returns>A ServiceResponse indicating the result of the update operation.</returns>
         public async Task<ServiceResponse> UpdateArtistDetails(int id, ArtistDto artistDto)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
@@ -113,5 +115,28 @@ namespace DigitalArtShowcase.Services
             return serviceResponse;
 
         }
+        /// <summary>
+        /// Deletes an artist by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the artist to delete.</param>
+        /// <returns>A ServiceResponse indicating the result of the deletion operation.</returns>
+        public async Task<ServiceResponse> DeleteArtist(int id)
+        {
+            ServiceResponse response = new();
+            // Artist must exist in the first place
+            var artist = await _context.Artists.FindAsync(id);
+            if (artist == null)
+            {
+                response.Status = ServiceResponse.ServiceStatus.NotFound;
+                response.Messages.Add("Artist cannot be deleted because it does not exist.");
+                return response;
+            }
+            _context.Artists.Remove(artist);
+            await _context.SaveChangesAsync();
+            response.Status = ServiceResponse.ServiceStatus.Deleted;
+
+            return response;
+        }
+
     }
 }
