@@ -40,8 +40,7 @@ namespace DigitalArtShowcase.Services
             {
                 ExhibitionName = exhibitionDto.ExhibitionName,
                 Location = exhibitionDto.Location,
-                Date = exhibitionDto.Date,
-                Artworks = artworks
+                Date = exhibitionDto.Date
             };
 
             _context.Exhibitions.Add(exhibition);

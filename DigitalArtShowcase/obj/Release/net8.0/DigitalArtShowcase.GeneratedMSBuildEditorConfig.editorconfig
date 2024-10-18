@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DigitalArtShowcase
+build_property.RootNamespace = DigitalArtShowcase
+build_property.ProjectDir = C:\Users\HP\OneDrive\Desktop\humber\sem 2\Back end development\HTTP-5226\DigitalArtShowcase\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\HP\OneDrive\Desktop\humber\sem 2\Back end development\HTTP-5226\DigitalArtShowcase
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtistPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0UGFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtistPage/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0UGFnZVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtistPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0UGFnZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtistPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0UGFnZVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtistPage/new.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0UGFnZVxuZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtworkPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1BhZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtworkPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1BhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtworkPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1BhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtworkPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1BhZ2VcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ArtworkPage/new.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1BhZ2VcbmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ExhibitionPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblBhZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ExhibitionPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ExhibitionPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ExhibitionPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblBhZ2VcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/ExhibitionPage/new.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblBhZ2VcbmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive/Desktop/humber/sem 2/Back end development/HTTP-5226/DigitalArtShowcase/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ovxomiluav

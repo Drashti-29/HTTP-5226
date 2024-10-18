@@ -1,0 +1,54 @@
+﻿@model DigitalArtShowcase.Models.ArtistDto
+
+@{
+    ViewData["Title"] = "Artist Details";
+}
+
+<h1>Artist Details</h1>
+
+<div>
+    <h2>@Model.FirstName @Model.LastName</h2>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Biography:</strong> @Model.ArtistBio</p>
+</div>
+
+<hr />
+
+<h3>Artworks</h3>
+@if (Model.Artworks != null && Model.Artworks.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Exhibitions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var artwork in Model.Artworks)
+            {
+                <tr>
+                    <td>@artwork.Title</td>
+                    <td>@artwork.Description</td>
+                    <td>@artwork.CreationYear</td>
+                    <td>@artwork.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No artworks found for this artist.</p>
+}
+
+<hr />
+
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ArtistId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

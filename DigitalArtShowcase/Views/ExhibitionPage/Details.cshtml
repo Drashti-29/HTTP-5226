@@ -1,0 +1,54 @@
+﻿@model DigitalArtShowcase.Models.ExhibitionDto
+
+@{
+    ViewData["Title"] = "Exhibition Details";
+}
+
+<h1>Exhibition Details</h1>
+
+<div>
+    <h2>@Model.ExhibitionName</h2>
+    <p><strong>Location:</strong> @Model.Location</p>
+    <p><strong>Date:</strong> @Model.Date.ToString("dd MMM yyyy")</p>
+</div>
+
+<hr />
+
+<h3>Artworks in this Exhibition</h3>
+@if (Model.Artworks != null && Model.Artworks.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Artist</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var artwork in Model.Artworks)
+            {
+                <tr>
+                    <td>@artwork.Title</td>
+                    <td>@artwork.Description</td>
+                    <td>@artwork.CreationYear</td>
+                    <td>@artwork.Price.ToString("C")</td>
+                    <td>@artwork.ArtistName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No artworks found for this exhibition.</p>
+}
+
+<hr />
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ExhibitionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

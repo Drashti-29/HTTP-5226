@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DigitalArtShowcase.Models.ExhibitionDto>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Exhibition</h1>
+
+<p>
+    <a asp-action="New">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExhibitionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                Artworks
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exhibition in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => exhibition.ExhibitionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => exhibition.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => exhibition.Date)
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var artwork in exhibition.Artworks)
+                        {
+                            <li>@artwork.Title</li> <!-- Assuming 'Title' is the property for artwork's name -->
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@exhibition.ExhibitionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@exhibition.ExhibitionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@exhibition.ExhibitionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -32,5 +32,11 @@ namespace DigitalArtShowcase.Models
         public string ArtistBio { get; set; }
 
         public String Email { get; set; }
+
+        // A collection of artwork IDs associated with this artist
+        public List<int> ArtworkIds { get; set; } = new List<int>();
+
+        // Optionally, you can also include a collection of detailed ArtworkDto objects
+        public List<ArtworkDto> Artworks { get; set; } = new List<ArtworkDto>();
     }
 }

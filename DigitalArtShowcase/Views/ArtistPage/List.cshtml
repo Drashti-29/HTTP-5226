@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DigitalArtShowcase.Models.ArtistDto>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Artists</h1>
+
+<p>
+    <a asp-action="New">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArtistBio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var artist in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => artist.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => artist.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => artist.ArtistBio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => artist.Email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@artist.ArtistId">Edit</a> |
+                    <a asp-action="Detail" asp-route-id="@artist.ArtistId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@artist.ArtistId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

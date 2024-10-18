@@ -1,10 +1,7 @@
 ﻿using DigitalArtShowcase.Data;
 using DigitalArtShowcase.Interface;
 using DigitalArtShowcase.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Numerics;
 
 namespace DigitalArtShowcase.Services
 {
@@ -31,7 +28,7 @@ namespace DigitalArtShowcase.Services
                 FirstName = artistDto.FirstName,
                 LastName = artistDto.LastName,
                 ArtistBio = artistDto.ArtistBio,
-                Email = artistDto.Email,
+                Email = artistDto.Email
             };
             _context.Artists.Add(artist);
             await _context.SaveChangesAsync();
@@ -48,21 +45,39 @@ namespace DigitalArtShowcase.Services
         /// <returns>An ArtistDto containing the artist's details, or null if not found.</returns>
         public async Task<ArtistDto> GetArtist(int id)
         {
-            var artist =  await _context.Artists.FindAsync(id);
-            // no artist found
-            if (artist == null)
-            {
-                return null;
+                // Fetch the artist along with artworks and their related exhibitions
+                var artist = await _context.Artists
+                    .Include(a => a.Artworks)
+                    .ThenInclude(artwork => artwork.Exhibitions) // Include exhibitions for each artwork
+                    .FirstOrDefaultAsync(a => a.ArtistId == id);
+
+                // No artist found
+                if (artist == null)
+                {
+                    return null;
+                }
+
+                // Create an instance of ArtistDto and populate the artist details
+                ArtistDto artistDto = new ArtistDto
+                {
+                    ArtistId = artist.ArtistId,
+                    FirstName = artist.FirstName,
+                    LastName = artist.LastName,
+                    ArtistBio = artist.ArtistBio,
+                    Email = artist.Email,
+                    Artworks = artist.Artworks.Select(artwork => new ArtworkDto
+                    {
+                        ArtworkId = artwork.ArtworkId,
+                        Title = artwork.Title,
+                        Description = artwork.Description,
+                        CreationYear = artwork.CreationYear,
+                        Price = artwork.Price,
+                        ArtistId = artwork.ArtistId,
+                    }).ToList()
+                };
+
+                return artistDto;
             }
-            // create an instance of ArtistDto
-            ArtistDto artistDto = new ArtistDto();
-            artistDto.ArtistId = artist.ArtistId;
-            artistDto.FirstName = artist.FirstName;
-            artistDto.LastName = artist.LastName;
-            artistDto.ArtistBio = artist.ArtistBio;
-            artistDto.Email = artist.Email;
-            return artistDto;
-        }
 
         /// <summary>
         /// Retrieves a list of all artists.
@@ -99,22 +114,60 @@ namespace DigitalArtShowcase.Services
         public async Task<ServiceResponse> UpdateArtistDetails(int id, ArtistDto artistDto)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
-            Artist artist = new Artist()
+
+            // Find the artist with the associated artworks using eager loading (Include)
+            var existingArtist = await _context.Artists.Include(a => a.Artworks).FirstOrDefaultAsync(a => a.ArtistId == id);
+
+            // Check if the artist exists
+            if (existingArtist == null)
             {
-                ArtistId = artistDto.ArtistId,
-                FirstName = artistDto.FirstName,
-                LastName = artistDto.LastName,
-                ArtistBio = artistDto.ArtistBio,
-                Email = artistDto.Email,
-            };
-            // flags that the object has changed
-            _context.Entry(artist).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+                serviceResponse.Status = ServiceResponse.ServiceStatus.NotFound;
+                serviceResponse.Messages.Add("Artist not found.");
+                return serviceResponse;
+            }
+
+            // Update artist's basic details
+            existingArtist.FirstName = artistDto.FirstName ?? existingArtist.FirstName;
+            existingArtist.LastName = artistDto.LastName ?? existingArtist.LastName;
+            existingArtist.ArtistBio = artistDto.ArtistBio ?? existingArtist.ArtistBio;
+            existingArtist.Email = artistDto.Email ?? existingArtist.Email;
+
+            // Handle artwork updates based on ArtworkIds in artistDto
+            if (artistDto.ArtworkIds != null && artistDto.ArtworkIds.Any())
+            {
+                // Find artworks in the database that match the provided ArtworkIds
+                var artworksToAdd = await _context.Artworks
+                    .Where(aw => artistDto.ArtworkIds.Contains(aw.ArtworkId))
+                    .ToListAsync();
+
+                // Clear existing artworks
+                existingArtist.Artworks.Clear();
+
+                // Add the new artworks to the artist
+                foreach (var artwork in artworksToAdd)
+                {
+                    existingArtist.Artworks.Add(artwork);
+                }
+            }
+
+            try
+            {
+                // Save the changes to the database
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("An error occurred while updating the artist.");
+                return serviceResponse;
+            }
+
             serviceResponse.Status = ServiceResponse.ServiceStatus.Updated;
+            serviceResponse.Messages.Add($"Artist {existingArtist.FirstName} {existingArtist.LastName} updated successfully.");
 
             return serviceResponse;
-
         }
+
         /// <summary>
         /// Deletes an artist by their ID.
         /// </summary>

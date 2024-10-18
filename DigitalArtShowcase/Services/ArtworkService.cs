@@ -68,15 +68,18 @@ namespace DigitalArtShowcase.Services
 
         public async Task<ArtworkDto> GetArtwork(int id)
         {
+            // Fetch the artwork with the associated artist and exhibitions using eager loading
             var artwork = await _context.Artworks
                 .Include(a => a.Artist)
+                .Include(a => a.Exhibitions)
                 .FirstOrDefaultAsync(a => a.ArtworkId == id);
 
             if (artwork == null)
             {
-                return null;
+                return null; // or you can throw an exception if preferred
             }
 
+            // Map the artwork entity to the ArtworkDto
             ArtworkDto artworkDto = new ArtworkDto()
             {
                 ArtworkId = artwork.ArtworkId,
@@ -85,11 +88,25 @@ namespace DigitalArtShowcase.Services
                 Description = artwork.Description,
                 Price = artwork.Price,
                 ArtistId = artwork.ArtistId,
-                ArtistName = artwork.Artist != null ? artwork.Artist.FirstName + " " + artwork.Artist.LastName : "Unknown Artist"
+                ArtistName = artwork.Artist != null
+                    ? $"{artwork.Artist.FirstName} {artwork.Artist.LastName}"
+                    : "Unknown Artist",
+
+                // Ensure Exhibitions is initialized to prevent null reference exception
+                Exhibitions = artwork.Exhibitions != null
+                    ? artwork.Exhibitions.Select(exhibition => new ExhibitionDto
+                    {
+                        ExhibitionId = exhibition.ExhibitionId,
+                        ExhibitionName = exhibition.ExhibitionName,
+                        Location = exhibition.Location,
+                        Date = exhibition.Date
+                    }).ToList()
+                    : new List<ExhibitionDto>() // or simply return null or handle as needed
             };
 
             return artworkDto;
         }
+
 
         public async Task<IEnumerable<ArtworkDto>> ListArtworks()
         {

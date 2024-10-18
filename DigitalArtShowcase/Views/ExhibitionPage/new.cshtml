@@ -1,0 +1,46 @@
+﻿@model DigitalArtShowcase.Models.ExhibitionDto
+
+@{
+    ViewData["Title"] = "Create Exhibition";
+}
+
+<h1>Create Exhibition</h1>
+
+<form asp-action="AddExhibitionWithArtworks" method="post">
+    <div class="form-group">
+        <label asp-for="ExhibitionName" class="control-label"></label>
+        <input asp-for="ExhibitionName" class="form-control" />
+        <span asp-validation-for="ExhibitionName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Location" class="control-label"></label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date" class="control-label"></label>
+        <input asp-for="Date" class="form-control" type="date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <!-- Multi-select dropdown for artworks -->
+    <div class="form-group">
+        <label>Artworks</label>
+        <select asp-for="Artworks" asp-items="@(new MultiSelectList(ViewBag.Artworks, "ArtworkId", "Title"))" class="form-control" multiple="multiple"></select>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="Index">Back to List</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

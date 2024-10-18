@@ -41,6 +41,9 @@ namespace DigitalArtShowcase.Models
         public int ArtistId { get; set; } // Foreign key for Artist
 
         // Optionally include basic artist info or other relevant properties if needed
-        public string ArtistName { get; set; } // e.g., Include artist name for reference in the DTO
+        public string ArtistName { get; set; } // e.g., Include artist name for reference in the DTo 
+
+        // New property to hold a list of associated exhibitions
+        public List<ExhibitionDto> Exhibitions { get; set; } // List of exhibitions where the artwork is featured
     }
 }
