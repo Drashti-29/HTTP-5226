@@ -4,42 +4,51 @@
 }
 
 <h1>New Artwork</h1>
-
 <hr />
-<div class="row">
- <div class="col-md-4">
-<h2>Create Artwork</h2>
-<form method="POST" action="/ArtworkPage/Add">
-    <div>
-        <label asp-for="Title"></label>
-        <input asp-for="Title" />
-    </div>
-    <div>
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
-    </div>
-    <div>
-        <label asp-for="CreationYear"></label>
-        <input asp-for="CreationYear" type="number" />
-    </div>
-    <div>
-        <label asp-for="Price"></label>
-        <input asp-for="Price" type="number" />
-    </div>
-    <div>
-        <label asp-for="ArtistId"></label>
-        <input asp-for="ArtistId" type="number" />
-    </div>
 
-    <!-- Optional: Display associated exhibitions -->
-            <div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create Artwork</h2>
+        <form method="POST" action="/ArtworkPage/Add">
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CreationYear" class="control-label"></label>
+                <input asp-for="CreationYear" type="number" class="form-control" />
+                <span asp-validation-for="CreationYear" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" type="number" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ArtistId" class="control-label"></label>
+                <input asp-for="ArtistId" type="number" class="form-control" />
+                <span asp-validation-for="ArtistId" class="text-danger"></span>
+            </div>
+
+            <!-- Optional: Display associated exhibitions -->
+            <div class="form-group">
                 <label>Exhibitions</label>
                 @if (Model.Exhibitions != null && Model.Exhibitions.Any())
                 {
-                    <ul>
+                    <ul class="list-group">
                         @foreach (var exhibition in Model.Exhibitions)
                         {
-                            <li>@exhibition.ExhibitionName - @exhibition.Location</li>
+                            <li class="list-group-item">@exhibition.ExhibitionName - @exhibition.Location</li>
                         }
                     </ul>
                 }
@@ -49,14 +58,13 @@
                 }
             </div>
 
-    <button type="submit">Create Artwork</button>
-</form>
+            <button type="submit" class="btn btn-primary">Create Artwork</button>
+        </form>
 
-
-<a asp-action="Index">Back to List</a>
+        <a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+</div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

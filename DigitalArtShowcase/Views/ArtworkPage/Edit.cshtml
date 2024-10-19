@@ -1,59 +1,72 @@
 ﻿@model DigitalArtShowcase.Models.ArtworkDto
+@{
+    ViewData["Title"] = "Edit Artwork";
+    var artistList = ViewBag.ArtistList as List<SelectListItem>;
+}
 
-<h2>Edit Artwork</h2>
+<h1>Edit Artwork</h1>
 
-<form asp-action="Edit">
+<form asp-action="Edit" asp-controller="Artworks" method="post">
     <input type="hidden" asp-for="ArtworkId" />
     
     <div class="form-group">
         <label asp-for="Title"></label>
-        <input class="form-control" asp-for="Title" />
+        <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Description"></label>
-        <textarea class="form-control" asp-for="Description"></textarea>
+        <textarea asp-for="Description" class="form-control"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="CreationYear"></label>
-        <input class="form-control" asp-for="CreationYear" />
+        <input asp-for="CreationYear" class="form-control" type="number" />
         <span asp-validation-for="CreationYear" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Price"></label>
-        <input class="form-control" asp-for="Price" type="number" step="0.01" />
+        <input asp-for="Price" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="ArtistId"></label>
-        <select asp-for="ArtistId" class="form-control">
-            @foreach (var artist in ViewBag.Artists)
-            {
-                <option value="@artist.ArtistId">
-                    @artist.FirstName @artist.LastName
-                </option>
-            }
-        </select>
-    </div>
+    <label>Artist</label><br />
+    @foreach (var artist in artistList)
+    {
+        bool isChecked = artist.Value == Model.ArtistId.ToString();
+        <div>
+            <input type="radio" asp-for="ArtistId" value="@artist.Value" id="@artist.Value" />
+            <label for="@artist.Value">@artist.Text</label>
+        </div>
+    }
+    <span asp-validation-for="ArtistId" class="text-danger"></span>
+</div>
 
     <div class="form-group">
         <label>Exhibitions</label>
-        @foreach (var exhibition in Model.Exhibitions)
-        {
-            <div>
-                <input type="checkbox" value="@exhibition.ExhibitionId" />
-                @exhibition.ExhibitionName
-            </div>
-        }
+        <ul>
+            @if (Model.Exhibitions != null && Model.Exhibitions.Count > 0)
+            {
+                foreach (var exhibition in Model.Exhibitions)
+                {
+                    <li>@exhibition.ExhibitionName (@exhibition.Date.ToShortDateString())</li>
+                }
+            }
+            else
+            {
+                <li>No exhibitions associated with this artwork.</li>
+            }
+        </ul>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

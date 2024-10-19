@@ -4,51 +4,147 @@
     ViewData["Title"] = "Artist Details";
 }
 
-<h1>Artist Details</h1>
+<div class="container">
+    <div class="row">
+        <!-- Left Column: Artist Details -->
+        <div class="col-md-4">
+            <div class="artist-card">
+                <h2>@Model.FirstName @Model.LastName</h2>
+                <p><strong>Email:</strong> @Model.Email</p>
+                <p><strong>Biography:</strong> @Model.ArtistBio</p>
+                <div class="action-buttons">
+                    <a class="btn edit-button" asp-action="Edit" asp-route-id="@Model.ArtistId">Edit</a>
+                    <a class="btn back-button" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
 
-<div>
-    <h2>@Model.FirstName @Model.LastName</h2>
-    <p><strong>Email:</strong> @Model.Email</p>
-    <p><strong>Biography:</strong> @Model.ArtistBio</p>
+        <!-- Right Column: Artworks -->
+        <div class="col-md-8">
+            <h3>Artworks</h3>
+            <div class="artwork-list">
+                @if (Model.Artworks != null && Model.Artworks.Any())
+                {
+                    foreach (var artwork in Model.Artworks)
+                    {
+                        <div class="artwork-card">
+                            <h4>@artwork.Title</h4>
+                            <p><strong>Description:</strong> @artwork.Description</p>
+                            <p><strong>Year:</strong> @artwork.CreationYear</p>
+                            <p><strong>Price:</strong> @artwork.Price.ToString("C")</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No artworks found for this artist.</p>
+                }
+            </div>
+        </div>
+    </div>
 </div>
 
-<hr />
+<!-- CSS Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
 
-<h3>Artworks</h3>
-@if (Model.Artworks != null && Model.Artworks.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Exhibitions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var artwork in Model.Artworks)
-            {
-                <tr>
-                    <td>@artwork.Title</td>
-                    <td>@artwork.Description</td>
-                    <td>@artwork.CreationYear</td>
-                    <td>@artwork.Price.ToString("C")</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No artworks found for this artist.</p>
-}
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-<hr />
+    .row {
+        display: flex;
+        gap: 20px;
+    }
 
+    /* Left Column: Artist Card */
+    .artist-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-<p>
-    <a asp-action="Edit" asp-route-id="@Model.ArtistId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</p>
+    .artist-card h2 {
+        margin-top: 0;
+        font-size: 1.8rem;
+        color: #333;
+    }
+
+    .artist-card p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+    }
+
+    .edit-button, .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+
+    .edit-button {
+        background-color: #007bff;
+    }
+
+    .back-button {
+        background-color: #6c757d;
+    }
+
+    .edit-button:hover {
+        background-color: #0056b3;
+    }
+
+    .back-button:hover {
+        background-color: #5a6268;
+    }
+
+    /* Right Column: Artwork Cards */
+    .artwork-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .artwork-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        width: 300px;
+        text-align: left;
+        transition: transform 0.2s;
+    }
+
+    .artwork-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .artwork-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .artwork-card p {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 5px;
+    }
+</style>

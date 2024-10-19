@@ -4,51 +4,139 @@
     ViewData["Title"] = "Exhibition Details";
 }
 
-<h1>Exhibition Details</h1>
+<div class="container">
+    <div class="row">
+        <!-- Left Column: Exhibition Details -->
+        <div class="col-md-4">
+            <div class="exhibition-card">
+                <h2>@Model.ExhibitionName</h2>
+                <p><strong>Location:</strong> @Model.Location</p>
+                <p><strong>Date:</strong> @Model.Date.ToString("dd MMM yyyy")</p>
+                <div class="action-buttons">
+                    <a class="btn edit-button" asp-action="Edit" asp-route-id="@Model.ExhibitionId">Edit</a>
+                    <a class="btn back-button" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
 
-<div>
-    <h2>@Model.ExhibitionName</h2>
-    <p><strong>Location:</strong> @Model.Location</p>
-    <p><strong>Date:</strong> @Model.Date.ToString("dd MMM yyyy")</p>
+        <!-- Right Column: Artworks in the Exhibition -->
+        <div class="col-md-8">
+            <h3>Artworks in this Exhibition</h3>
+            <div class="artwork-cards">
+                @if (Model.Artworks != null && Model.Artworks.Any())
+                {
+                    foreach (var artwork in Model.Artworks)
+                    {
+                        <div class="artwork-card">
+                            <h4>@artwork.Title</h4>
+                            <p><strong>Description:</strong> @artwork.Description</p>
+                            <p><strong>Year:</strong> @artwork.CreationYear</p>
+                            <p><strong>Price:</strong> @artwork.Price.ToString("C")</p>
+                            <p><strong>Artist:</strong> @artwork.ArtistName</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No artworks found for this exhibition.</p>
+                }
+            </div>
+        </div>
+    </div>
 </div>
 
-<hr />
+<!-- CSS Styles -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
 
-<h3>Artworks in this Exhibition</h3>
-@if (Model.Artworks != null && Model.Artworks.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Artist</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var artwork in Model.Artworks)
-            {
-                <tr>
-                    <td>@artwork.Title</td>
-                    <td>@artwork.Description</td>
-                    <td>@artwork.CreationYear</td>
-                    <td>@artwork.Price.ToString("C")</td>
-                    <td>@artwork.ArtistName</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No artworks found for this exhibition.</p>
-}
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-<hr />
+    .row {
+        display: flex;
+        gap: 20px;
+    }
 
-<p>
-    <a asp-action="Edit" asp-route-id="@Model.ExhibitionId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</p>
+    /* Left Column: Exhibition Card */
+    .exhibition-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .exhibition-card h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #007bff;
+    }
+
+    .exhibition-card p {
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    /* Button Styling */
+    .action-buttons {
+        margin-top: 20px;
+    }
+
+    .action-buttons .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-right: 10px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+    }
+
+    .edit-button {
+        background-color: #007bff;
+    }
+
+    .back-button {
+        background-color: #6c757d;
+    }
+
+    .edit-button:hover {
+        background-color: #0056b3;
+    }
+
+    .back-button:hover {
+        background-color: #5a6268;
+    }
+
+    /* Right Column: Artwork Cards */
+    .artwork-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .artwork-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .artwork-card h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .artwork-card p {
+        margin: 5px 0;
+        color: #666;
+    }
+</style>

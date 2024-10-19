@@ -6,48 +6,112 @@
 <h1>Artists</h1>
 
 <p>
-    <a asp-action="New">Create New</a>
+    <a class="create-button" asp-action="New">Create New Artist</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArtistBio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var artist in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => artist.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artist.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artist.ArtistBio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artist.Email)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@artist.ArtistId">Edit</a> |
-                    <a asp-action="Detail" asp-route-id="@artist.ArtistId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@artist.ArtistId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="artist-list">
+    @foreach (var artist in Model)
+    {
+        <div class="artist-card">
+            <div class="artist-info">
+                <h2>@artist.FirstName @artist.LastName</h2>
+                <p class="bio">@artist.ArtistBio</p>
+                <p><strong>Email:</strong> @artist.Email</p>
+            </div>
+            <div class="artist-actions">
+                <a class="edit-button" asp-action="Edit" asp-route-id="@artist.ArtistId">Edit</a>
+                <a class="details-button" asp-action="Detail" asp-route-id="@artist.ArtistId">Details</a>
+                <a class="delete-button" asp-action="Delete" asp-route-id="@artist.ArtistId">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- CSS Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #4a4a4a;
+    }
+
+    .create-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .artist-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .artist-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        transition: transform 0.2s;
+    }
+
+    .artist-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .artist-info h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+    .artist-info p {
+        margin: 10px 0;
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .bio {
+        color: #555;
+        font-style: italic;
+    }
+
+    .artist-actions {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .artist-actions a {
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    .edit-button {
+        background-color: #007bff;
+    }
+
+    .details-button {
+        background-color: #17a2b8;
+    }
+
+    .delete-button {
+        background-color: #dc3545;
+    }
+</style>

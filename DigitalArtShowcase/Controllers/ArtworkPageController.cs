@@ -30,10 +30,11 @@ namespace DigitalArtShowcase.Controllers
         /// It utilizes dependency injection to interact with the artwork service layer.
         /// </summary>
         /// <param name="ArtworkService">The artwork service interface for performing operations.</param>
-        public ArtworkPageController(IArtworkService ArtworkService, IArtistService ArtistService)
+        public ArtworkPageController(ApplicationDbContext context, IArtworkService ArtworkService, IArtistService ArtistService)
         {
             _artworkService = ArtworkService;
             _artistService = ArtistService;
+            _context = _context;
         }
 
         // GET: api/ArtistAPI
@@ -71,15 +72,17 @@ namespace DigitalArtShowcase.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var artwork = await _context.Artworks.Include(a => a.Artist)
-                              .Include(a => a.Exhibitions)  // If needed, include exhibitions here.
-                              .FirstOrDefaultAsync(a => a.ArtworkId == id);
+            var artwork = await _context.Artworks
+        .Include(a => a.Artist)
+        .Include(a => a.Exhibitions) // Include associated exhibitions if applicable
+        .FirstOrDefaultAsync(a => a.ArtworkId == id);
 
             if (artwork == null)
             {
-                return NotFound("Artwork not found.");
+                return NotFound();
             }
 
+            // Prepare the ArtworkDto
             var artworkDto = new ArtworkDto
             {
                 ArtworkId = artwork.ArtworkId,
@@ -89,36 +92,37 @@ namespace DigitalArtShowcase.Controllers
                 Price = artwork.Price,
                 ArtistId = artwork.ArtistId,
                 ArtistName = artwork.Artist.FirstName + " " + artwork.Artist.LastName,
-                Exhibitions = artwork.Exhibitions.Select(e => new ExhibitionDto { ExhibitionId = e.ExhibitionId, ExhibitionName = e.ExhibitionName }).ToList()
+                Exhibitions = artwork.Exhibitions.Select(e => new ExhibitionDto
+                {
+                    ExhibitionName = e.ExhibitionName,
+                    Date = e.Date
+                }).ToList()
             };
+            // Retrieve the list of artists for radio button selection
+            var artistList = await _artistService.ListArtists();
+
+            // Pass both the ArtworkDto and the ArtistList to the view
+            ViewBag.ArtistList = artistList;
 
             return View(artworkDto);
         }
 
         // POST: Update Artwork
         [HttpPost]
-        public async Task<IActionResult> Update(ArtworkDto artworkDto)
+        public async Task<IActionResult> Edit(int id, ArtworkDto artworkDto)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(artworkDto);
+                var serviceResponse = await _artworkService.UpdateArtworkDetails(id,artworkDto);
+                if (serviceResponse.Status == ServiceResponse.ServiceStatus.Updated)
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", string.Join(", ", serviceResponse.Messages));
             }
 
-            var serviceResponse = await _artworkService.UpdateArtworkDetails(artworkDto.ArtworkId, artworkDto);
-
-            if (serviceResponse.Status == ServiceResponse.ServiceStatus.NotFound)
-            {
-                return NotFound(serviceResponse.Messages.FirstOrDefault());
-            }
-
-            if (serviceResponse.Status == ServiceResponse.ServiceStatus.Updated)
-            {
-                TempData["SuccessMessage"] = "Artwork updated successfully!";
-                return RedirectToAction("Details", new { id = artworkDto.ArtworkId });
-            }
-
-            // In case of an unexpected issue
-            ModelState.AddModelError(string.Empty, "Failed to update artwork.");
+            // Repopulate the artist list in case of a validation error
+            artworkDto.ArtistName = (await _artistService.GetArtist(id)).FirstName;
             return View(artworkDto);
         }
 

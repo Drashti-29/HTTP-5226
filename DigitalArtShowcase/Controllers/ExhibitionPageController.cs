@@ -3,6 +3,7 @@ using DigitalArtShowcase.Interface;
 using DigitalArtShowcase.Models;
 using DigitalArtShowcase.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigitalArtShowcase.Controllers
 {
@@ -28,9 +29,10 @@ namespace DigitalArtShowcase.Controllers
         /// </summary>
         /// <param name="ExhibitionService">The exhibition service interface for performing operations.</param>
 
-        public ExhibitionPageController(IExhibitionService ExhibitionService)
+        public ExhibitionPageController(IExhibitionService ExhibitionService, ApplicationDbContext context)
         {
             _exhibitionService = ExhibitionService;
+            _context = context;
         }
 
         /// <summary>
@@ -62,34 +64,74 @@ namespace DigitalArtShowcase.Controllers
         /// </summary>
         /// <param name="exhibitionDto">The exhibition details to create.</param>
         /// <returns>A ServiceResponse indicating the result of the operation.</returns>
-        public ActionResult New()
+        public IActionResult New()
         {
-            var artwork = _context.Artworks.Select(a => new { ArtworkId = a.ArtworkId, Title = a.Title }).ToList();
+            // Fetch and map artworks to ArtworkDto
+            var availableArtworks = _context.Artworks
+                .Select(a => new ArtworkDto
+                {
+                    ArtworkId = a.ArtworkId,
+                    Title = a.Title
+                    // Map other properties as needed
+                })
+                .ToList();
 
-            if (artwork == null || !artwork.Any())
+            var model = new ExhibitionDto
             {
-                // Handle the case when no artists are found
-                ViewBag.ErrorMessage = "No artworks found in the database.";
-            }
+                Artworks = availableArtworks // Assign the mapped artworks
+            };
 
-            ViewBag.Artworks = artwork;
-
-            return View();
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(ExhibitionDto exhibitionDto)
+        public async Task<IActionResult> Create(ExhibitionDto exhibitionDto)
         {
-            ServiceResponse response = await _exhibitionService.CreateExhibition(exhibitionDto);
 
-            if (response.Status == ServiceResponse.ServiceStatus.Created)
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("List", "ExhibitionPage");
+                // Repopulate available artworks in case of validation errors
+                exhibitionDto.Artworks = await _context.Artworks
+                    .Select(a => new ArtworkDto
+                    {
+                        ArtworkId = a.ArtworkId,
+                        Title = a.Title
+                    }).ToListAsync();
+
+                return View(exhibitionDto);
             }
-            else
+
+            // Validate and fetch Artworks
+            var artworks = await _context.Artworks
+                .Where(a => exhibitionDto.Artworks.Select(adto => adto.ArtworkId).Contains(a.ArtworkId))
+                .ToListAsync();
+
+            if (artworks.Count != exhibitionDto.Artworks.Count)
             {
-                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+                ModelState.AddModelError(string.Empty, "Some artworks provided do not exist. Please check ArtworkIds.");
+                exhibitionDto.Artworks = await _context.Artworks
+                    .Select(a => new ArtworkDto
+                    {
+                        ArtworkId = a.ArtworkId,
+                        Title = a.Title
+                    }).ToListAsync();
+
+                return View(exhibitionDto);
             }
+
+            // Create a new Exhibition
+            var exhibition = new Exhibition
+            {
+                ExhibitionName = exhibitionDto.ExhibitionName,
+                Location = exhibitionDto.Location,
+                Date = exhibitionDto.Date,
+                Artworks = artworks // Assign the fetched artworks to the exhibition
+            };
+
+            _context.Exhibitions.Add(exhibition);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
@@ -98,10 +140,64 @@ namespace DigitalArtShowcase.Controllers
         /// <param name="id">The ID of the exhibition to update.</param>
         /// <param name="exhibitionDto">The updated exhibition details.</param>
         /// <returns>A ServiceResponse indicating the result of the update operation.</returns>
-        [HttpPut]
-        public async Task<IActionResult> UpdateDetails(int id, ExhibitionDto exhibitionDto)
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(await _exhibitionService.UpdateExhibitionDetails(id, exhibitionDto));
+            // Fetch the existing exhibition along with its artworks
+            var existingExhibition = await _context.Exhibitions
+                .Include(e => e.Artworks)
+                .FirstOrDefaultAsync(e => e.ExhibitionId == id);
+
+            if (existingExhibition == null)
+            {
+                return NotFound();
+            }
+
+            // Map existing exhibition to DTO
+            var exhibitionDto = new ExhibitionDto
+            {
+                ExhibitionId = existingExhibition.ExhibitionId,
+                ExhibitionName = existingExhibition.ExhibitionName,
+                Location = existingExhibition.Location,
+                Date = existingExhibition.Date,
+                Artworks = existingExhibition.Artworks.Select(a => new ArtworkDto
+                {
+                    ArtworkId = a.ArtworkId,
+                    Title = a.Title // Assuming Artwork has a property called ArtworkName
+                }).ToList()
+            };
+
+            return View(exhibitionDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, ExhibitionDto exhibitionDto)
+        {
+            // Check if the model state is valid
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("List", "ExhibitionPage"); ;
+            }
+
+            // Call the service method to update the exhibition
+            var serviceResponse = await _exhibitionService.UpdateExhibitionDetails(exhibitionDto.ExhibitionId, exhibitionDto);
+
+            // Handle response status
+            if (serviceResponse.Status == ServiceResponse.ServiceStatus.NotFound)
+            {
+                ModelState.AddModelError(string.Empty, "Exhibition not found.");
+                return RedirectToAction("List", "ExhibitionPage");
+            }
+
+            if (serviceResponse.Status == ServiceResponse.ServiceStatus.Error)
+            {
+                ModelState.AddModelError(string.Empty, string.Join(", ", serviceResponse.Messages));
+                return RedirectToAction("List", "ExhibitionPage");
+            }
+
+            // Redirect to the index or another appropriate action
+            return RedirectToAction("List", "ExhibitionPage");
         }
 
         /// <summary>

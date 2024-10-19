@@ -6,54 +6,114 @@
 <h1>Artworks</h1>
 
 <p>
-    <a asp-action="New">Create New</a>
+    <a class="create-button" asp-action="New">Create New Artwork</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArtistName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreationYear)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var artwork in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => artwork.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artwork.ArtistName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artwork.CreationYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artwork.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => artwork.Price)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@artwork.ArtworkId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@artwork.ArtworkId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@artwork.ArtworkId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="artwork-list">
+    @foreach (var artwork in Model)
+    {
+        <div class="artwork-card">
+            <div class="artwork-info">
+                <h2>@artwork.Title</h2>
+                <p class="artist-name"><strong>Artist:</strong> @artwork.ArtistName</p>
+                <p><strong>Year:</strong> @artwork.CreationYear</p>
+                <p class="description">@artwork.Description</p>
+                <p><strong>Price:</strong> $@artwork.Price</p>
+            </div>
+            <div class="artwork-actions">
+                <a class="edit-button" asp-action="Edit" asp-route-id="@artwork.ArtworkId">Edit</a>
+                <a class="details-button" asp-action="Details" asp-route-id="@artwork.ArtworkId">Details</a>
+                <a class="delete-button" asp-action="Delete" asp-route-id="@artwork.ArtworkId">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- CSS Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #4a4a4a;
+    }
+
+    .create-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .artwork-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .artwork-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        transition: transform 0.2s;
+    }
+
+    .artwork-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .artwork-info h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+    .artwork-info p {
+        margin: 10px 0;
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .description {
+        color: #555;
+        font-style: italic;
+    }
+
+    .artwork-actions {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .artwork-actions a {
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    .edit-button {
+        background-color: #007bff;
+    }
+
+    .details-button {
+        background-color: #17a2b8;
+    }
+
+    .delete-button {
+        background-color: #dc3545;
+    }
+</style>

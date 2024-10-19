@@ -3,16 +3,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DigitalArtShowcase</title>
+    <title>@ViewData["Title"] - Digital Art Show-case</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DigitalArtShowcase.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom CSS for Artists, Artworks, and Exhibition links in the navbar */
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #343a40;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+            /* Add specific styling for the Artists, Artworks, and Exhibition */
+            .navbar-nav .nav-link:hover {
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                color: #007bff;
+            }
+
+        .navbar-nav .nav-item a[href*='ArtistPage'] {
+            color: #ff6347; /* Tomato color for artists */
+        }
+
+        .navbar-nav .nav-item a[href*='ArtworkPage'] {
+            color: #32cd32; /* Lime green color for artworks */
+        }
+
+        .navbar-nav .nav-item a[href*='ExhibitionPage'] {
+            color: #ff69b4; /* Hot pink color for exhibitions */
+        }
+
+            .navbar-nav .nav-item a[href*='ArtistPage']:hover,
+            .navbar-nav .nav-item a[href*='ArtworkPage']:hover,
+            .navbar-nav .nav-item a[href*='ExhibitionPage']:hover {
+                color: white; /* Text turns white on hover */
+                background-color: #007bff; /* Blue background on hover */
+            }
+
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DigitalArtShowcase</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Digital Art Showcase</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +59,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Swagger" asp-action="Index">API</a>
-                        </li
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ArtistPage" asp-action="List">Artists</a>
                         </li>
@@ -43,11 +78,13 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

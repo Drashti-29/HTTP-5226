@@ -3,56 +3,135 @@
     ViewData["Title"] = "List";
 }
 
-<h1>Exhibition</h1>
+<h1>Exhibitions</h1>
 
 <p>
-    <a asp-action="New">Create New</a>
+    <a class="create-button" asp-action="New">Create New Exhibition</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ExhibitionName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                Artworks
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var exhibition in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => exhibition.ExhibitionName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => exhibition.Location)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => exhibition.Date)
-                </td>
-                <td>
+
+<div class="exhibition-list">
+    @foreach (var exhibition in Model)
+    {
+        <div class="exhibition-card">
+            <div class="exhibition-info">
+                <h2>@exhibition.ExhibitionName</h2>
+                <p><strong>Location:</strong> @exhibition.Location</p>
+                <p><strong>Date:</strong> @exhibition.Date.ToString("MMMM dd, yyyy")</p>
+                <div class="artworks">
+                    <h3>Artworks:</h3>
                     <ul>
                         @foreach (var artwork in exhibition.Artworks)
                         {
-                            <li>@artwork.Title</li> <!-- Assuming 'Title' is the property for artwork's name -->
+                            <li>@artwork.Title</li>
                         }
                     </ul>
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@exhibition.ExhibitionId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@exhibition.ExhibitionId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@exhibition.ExhibitionId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </div>
+            </div>
+            <div class="exhibition-actions">
+                <a class="edit-button" asp-action="Edit" asp-route-id="@exhibition.ExhibitionId">Edit</a>
+                <a class="details-button" asp-action="Details" asp-route-id="@exhibition.ExhibitionId">Details</a>
+                <a class="delete-button" asp-action="Delete" asp-route-id="@exhibition.ExhibitionId">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- CSS Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #4a4a4a;
+    }
+
+    .create-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .exhibition-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .exhibition-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 350px;
+        transition: transform 0.2s;
+    }
+
+    .exhibition-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .exhibition-info h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+    .exhibition-info p {
+        margin: 10px 0;
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .artworks h3 {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        color: #4a4a4a;
+    }
+
+    .artworks ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .artworks li {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .exhibition-actions {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .exhibition-actions a {
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    .edit-button {
+        background-color: #007bff;
+    }
+
+    .details-button {
+        background-color: #17a2b8;
+    }
+
+    .delete-button {
+        background-color: #dc3545;
+    }
+</style>
